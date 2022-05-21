@@ -15,13 +15,15 @@ server.use(express.json());
 
 // import all of my DAOs
 const Actor = require('./API/actor/actor.dao');
+const Director = require('./API/director/director.dao');
+const Movie = require('./API/movie/movie.dao');
 
 // import the router factory function
 const routerFactory= require('./API/router');
 
 
 // use routes
-server.use('/', routerFactory(Actor));
+server.use('/', routerFactory(Actor, Director, Movie));
 
 server.listen(process.env.PORT, () => {
     const {PORT} = process.env;

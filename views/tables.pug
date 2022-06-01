@@ -1,0 +1,6 @@
+extends master.pug
+block content
+    ul#tableList
+        each tab in ['Movie', 'Actor', 'Director']
+            li
+                a(href=`/${tab}`)= tab

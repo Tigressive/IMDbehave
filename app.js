@@ -8,6 +8,8 @@ const express = require('express');
 require('dotenv').config();
 const db = require('./db');
 const server = express();
+const pug = require('pug');
+server.set('view engine', 'pug');
 
 db();
 
@@ -24,6 +26,69 @@ const routerFactory= require('./API/router');
 
 // use routes
 server.use('/', routerFactory(Actor, Director, Movie));
+
+server.get('/', (req, res, next) => {
+    res.render('tables', {});
+});
+
+
+
+//Movie
+server.get('/movie', (req, res) => {
+    Movie.read({}, (err, movies) => {
+        if (err) {
+            res.render('error', {});
+            return;
+        }
+        res.render('movies', {movies});
+    });
+});
+
+server.get('/movie/:id', (req, res) => {
+    const { id } = req.params;
+    if (id === 'new')
+    {
+        res.render('edit_movie', {});
+        return;
+    }
+    Movie.read({_id: id}, (err, movie) => {
+        if (err)
+        {
+            console.log(err);
+            res.render('error', {
+                message: 'Something clever',
+            });
+            return;
+        }
+        let data = movie[0];
+        console.log('data: ', data);
+        res.render('edit_movie', data);
+    });
+});
+
+
+//Actor
+server.get('/actor', (req, res) => {
+    Actor.read({}, (err, actors) => {
+        if (err) {
+            res.render('error', {});
+            return;
+        }
+        res.render('actors', {actors});
+    });
+});
+
+
+//Director
+server.get('/director', (req, res) => {
+    Director.read({}, (err, directors) => {
+        if (err) {
+            res.render('error', {});
+            return;
+        }
+        res.render('directors', {directors});
+    });
+});
 
 server.listen(process.env.PORT, () => {
     const {PORT} = process.env;

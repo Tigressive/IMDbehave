@@ -1,0 +1,22 @@
+extends master.pug
+block content
+    form#myForm(action='/actor')
+        input(type="hidden" name="id" value=_id)
+        div
+            p= name
+            label(for="name") Name
+            input(name="name" value=name)
+        div
+            label(for="developer") Developer
+            input(name="developer" value=developer)
+        div
+            label(for="year") Year
+            input(name="year" value=year)
+        div
+            label(for="platform") Platform
+            input(name="platform" value=platform)
+        div
+            input(type="submit" value="Submit")
+block scripts
+    script
+        include form.js

@@ -1,0 +1,7 @@
+extends master.pug
+block content
+    ul#tableList
+        each actor in actors
+            li
+                a(href=`/actor/${actor._id}`)= actor.name
+    a(href="/actor/new") Add new Actor

@@ -1,0 +1,7 @@
+extends master.pug
+block content
+    ul#tableList
+        each movie in movies
+            li
+                a(href=`/movie/${movie._id}`)= movie.name
+    a(href="/movie/new") Add new movie

@@ -90,6 +90,31 @@ server.get('/director', (req, res) => {
     });
 });
 
+server.get('/director/:id', (req, res) => {
+    const { id } = req.params;
+    if (id === 'new')
+    {
+        res.render('edit_director', {});
+        return;
+    }
+
+    Director.read({_id: id}, (err, director) => {
+        if (err)
+        {
+            console.log(err);
+            res.render('error', {
+                message: 'Something clever',
+            });
+            return;
+        }
+        let data = director[0];
+        console.log('data: ', data);
+        res.render('edit_director', data);
+    });
+});
+
+
+
 server.listen(process.env.PORT, () => {
     const {PORT} = process.env;
     console.log('Server listening on port 3000...');

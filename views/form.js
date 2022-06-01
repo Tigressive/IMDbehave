@@ -17,7 +17,7 @@ form.addEventListener('submit', (ev) => {
     // });
 
 
-    // is this a new game
+    // is this a new item
     let isNew = true;
     let id = '';
     inputs.forEach((input) => {

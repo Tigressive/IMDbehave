@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const director = require('../director/dircector.schema')
+const director = require('../director/director.schema')
 
 const movieSchema = new mongoose.Schema({
     name: {

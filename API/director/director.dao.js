@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const schema = require('./dircector.schema');
+const schema = require('./director.schema');
 
 schema.statics = {
     create: function (data, callback){

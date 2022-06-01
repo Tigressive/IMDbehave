@@ -1,0 +1,22 @@
+extends master.pug
+block content
+    form#myForm(action='/director')
+        input(type="hidden" name="id" value=_id)
+        div
+            p= name
+            label(for="name") Name
+            input(name="name" value=name)
+        div
+            label(for="age") Age
+            input(name="age" value=age)
+        div
+            label(for="country") Country
+            input(name="country" value=country)
+        div
+            label(for="firstMovie") First Movie
+            input(name="first_movie" value=firstMovie)
+        div
+            input(type="submit" value="Submit")
+block scripts
+    script
+        include form.js

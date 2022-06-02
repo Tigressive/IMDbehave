@@ -66,6 +66,17 @@ server.get('/movie/:id', (req, res) => {
     });
 });
 
+//Delete
+server.get('/movie/delete/:id', (req, res) => {
+    Movie.delete({}, (err, directors) => {
+        if(err) {
+            res.render('error', {});
+            return;
+        }
+        res.redirect('/movie');
+    });
+});
+
 
 //Actor
 server.get('/actor', (req, res) => {
@@ -100,6 +111,17 @@ server.get('/actor/:id', (req, res) => {
     });
 });
 
+//Delete
+server.get('/actor/delete/:id', (req, res) => {
+    Actor.delete({}, (err, directors) => {
+        if(err) {
+            res.render('error', {});
+            return;
+        }
+        res.redirect('/actor');
+    });
+});
+
 
 //Director
 server.get('/director', (req, res) => {
@@ -112,11 +134,23 @@ server.get('/director', (req, res) => {
     });
 });
 
+//Delete
+server.get('/director/delete/:id', (req, res) => {
+    Director.delete({}, (err, directors) => {
+        if(err) {
+            res.render('error', {});
+            return;
+        }
+        res.redirect('/director');
+    });
+});
+
 server.get('/director/:id', (req, res) => {
     const { id } = req.params;
     if (id === 'new')
     {
         res.render('edit_director', {});
+        //res.redirect('/director');
         return;
     }
 

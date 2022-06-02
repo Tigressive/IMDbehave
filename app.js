@@ -78,6 +78,28 @@ server.get('/actor', (req, res) => {
     });
 });
 
+server.get('/actor/:id', (req, res) => {
+    const { id } = req.params;
+    if (id === 'new')
+    {
+        res.render('edit_actor', {});
+        return;
+    }
+    Actor.read({_id: id}, (err, actor) => {
+        if (err)
+        {
+            console.log(err);
+            res.render('error', {
+                message: 'Something clever',
+            });
+            return;
+        }
+        let data = actor[0];
+        console.log('data: ', data);
+        res.render('edit_actor', data);
+    });
+});
+
 
 //Director
 server.get('/director', (req, res) => {

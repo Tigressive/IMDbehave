@@ -1,20 +1,17 @@
 extends master.pug
 block content
-    form#myForm(action='/movie')
+    form#myForm(action='/api/movie')
         input(type="hidden" name="id" value=_id)
         div
             p= name
             label(for="name") Name
             input(name="name" value=name)
         div
-            label(for="developer") Developer
-            input(name="developer" value=developer)
+            label(for="yearReleased") Year Released
+            input(name="yearReleased" value=yearReleased)
         div
-            label(for="year") Year
-            input(name="year" value=year)
-        div
-            label(for="platform") Platform
-            input(name="platform" value=platform)
+            label(for="director") Director
+            input(name="director" value=director)
         div
             input(type="submit" value="Submit")
 block scripts

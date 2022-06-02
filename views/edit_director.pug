@@ -1,22 +1,24 @@
 extends master.pug
 block content
-    form#myForm(action='/api/director')
-        input(type="hidden" name="id" value=_id)
-        div
-            p= name
-            label(for="name") Name
-            input(name="name" value=name)
-        div
-            label(for="age") Age
-            input(name="age" value=age)
-        div
-            label(for="country") Country
-            input(name="country" value=country)
-        div
-            label(for="firstMovie") First Movie
-            input(name="firstMovie" value=firstMovie)
-        div
-            input(type="submit" value="Submit")
+    div#fuckFace
+        form#myForm(action='/api/director')
+            input(type="hidden" name="id" value=_id)
+            div
+                p#name= name
+                label(for="name") Name
+                input(name="name" value=name)
+            div
+                label(for="age") Age
+                input(name="age" value=age)
+            div
+                label(for="country") Country
+                input(name="country" value=country)
+            div
+                label(for="firstMovie") First Movie
+                input(name="firstMovie" value=firstMovie)
+            div
+                input(type="submit" value="Submit")
+    div
 block scripts
     script
         include form.js

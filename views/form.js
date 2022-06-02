@@ -26,7 +26,7 @@ form.addEventListener('submit', (ev) => {
 
             if (input.getAttribute('type') === 'hidden')
             {
-                if (input.value !== '')
+                if (input.value !== '' && input.value !== 'new')
                 {
                     isNew = false;
                     id = `/${input.value}`;

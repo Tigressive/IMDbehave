@@ -25,7 +25,7 @@ const routerFactory= require('./API/router');
 
 
 // use routes
-server.use('/', routerFactory(Actor, Director, Movie));
+server.use('/api', routerFactory([Actor, Director, Movie]));
 
 server.get('/', (req, res, next) => {
     res.render('tables', {});

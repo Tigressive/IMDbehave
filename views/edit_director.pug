@@ -1,6 +1,6 @@
 extends master.pug
 block content
-    form#myForm(action='/director')
+    form#myForm(action='/api/director')
         input(type="hidden" name="id" value=_id)
         div
             p= name
@@ -14,7 +14,7 @@ block content
             input(name="country" value=country)
         div
             label(for="firstMovie") First Movie
-            input(name="first_movie" value=firstMovie)
+            input(name="firstMovie" value=firstMovie)
         div
             input(type="submit" value="Submit")
 block scripts

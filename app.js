@@ -112,6 +112,16 @@ server.get('/director', (req, res) => {
     });
 });
 
+server.get('/director/delete/:id', (req, res) => {
+    Director.delete({}, (err, directors) => {
+        if(err) {
+            res.render('error', {});
+            return;
+        }
+        res.redirect('/director');
+    });
+});
+
 server.get('/director/:id', (req, res) => {
     const { id } = req.params;
     if (id === 'new')
@@ -131,7 +141,7 @@ server.get('/director/:id', (req, res) => {
         }
         let data = director[0];
         console.log('data: ', data);
-        res.render('edit_director', data);
+        res.redirect('/director');
     });
 });
 

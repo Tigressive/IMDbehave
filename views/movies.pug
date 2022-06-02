@@ -4,4 +4,5 @@ block content
         each movie in movies
             li
                 a(href=`/movie/${movie._id}`)= movie.name
+                a.btn(href=`movie/delete/${movie._id}`)='  Delete'
     a(href="/movie/new") Add new movie

@@ -45,7 +45,7 @@ form.addEventListener('submit', (ev) => {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(data)
     };
 
     fetch(`http://localhost:3000${endpoint}${id}`, fetchOptions)
